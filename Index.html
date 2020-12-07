@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<style>
+body {
+background: black;
+}
+
+#myInput {
+  position: absolute ;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 50%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid white;
+  margin-bottom: 12px;
+outline:none;
+left:80px;
+top:100px;
+border-radius:20px;
+transition:0.1s;
+text-align:center;
+background: transparent;
+color: aqua;
+font-family;
+box-shadow:0px 0px 10px aqua,inset 0px 0px 15px aqua;
+text-shadow:0px 0px 10px aqua,inset 0px 0px 15px aqua;
+}
+
+#myInput:hover{
+width:80%;
+left:5%;
+box-shadow:0px 0px 30px aqua,inset 0px 0px 5px aqua;
+background:#33;
+}
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+top:150px;
+position:relative;
+cursor: default;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration:none ;
+  font-size: 18px;
+  color: black;
+cursor: default;
+ font-family:serif;
+  display: block;
+  font-size:20px;
+}
+
+#myUL li a.header {
+  background-color: red;
+  cursor: default;
+}
+
+#myUL li h2:hover:not(.header) {
+  background-color:aqua;
+color:brown;
+}
+.title {
+font-size:30px;
+font-family: courier ;
+color: black;
+border:1px solid blue;
+box-shadow:0px 0px 10px aqua,inset 0px 0px 15px aqua;
+border-radius:10px;
+text-align:center;
+}
+.subject {
+text-align:center;
+color:springgreen;
+text-spacing:5px;
+
+}
+#results{
+opacity:00%;
+position:relative;
+text-align:center;
+top:140px;
+color:gray;
+
+}
+.ranrev01{
+position:relative;
+left:6%;
+top:-10px;
+z-index:2;
+opacity:0%;
+background: transparent;
+border:none;
+font-size:40px;
+outline: none;
+color:blue;
+-webkit-text-stroke:1px aqua;
+z-index:1;
+text-shadow:0px 0px 10px lime;
+}
+
+
+
+
+
+
+ .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+box-shadow:0px 0px 80px aqua;
+
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    
+z-index:10;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px){
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.Menu{
+position: fixed;
+top:0;
+color:lime;
+
+}
+#Head{
+position: fixed;
+background: black;
+top:0;
+width:100%;
+left:0;
+height:150px;
+z-index:1;
+
+}
+hr{
+background: linear-gradient(100deg,blue,red,blue,red);
+background-size:300%;
+height:5px;
+border:0px solid red;
+border-radius:30% 50% 30%;
+animation:animate 600s linear infinite;
+}
+@keyframes animate
+{
+0%
+{
+transform:rotatey(0deg);
+}
+40%
+{
+      transform:rotatey(10000deg);
+}
+60%
+{
+      transform:rotateY(0deg);
+}
+}
+
+.search2{
+position: fixed;
+left:80%;
+background: white;
+border:none;
+outline:none;
+top:101px;
+opacity:0%;
+width:30px;
+height:40px;
+text-align:cente;
+font-size:20px;
+z-index:0;
+border-radius:0px 50px 50px 0px ;
+}
+
+.image_search{
+position: absolute;
+width:25px;
+height:25px;
+top:6px;
+}
+.photos{
+border:2px solid red;
+ border-radius:10px;
+
+}
+.photos:hover p{
+background:blue;
+width:100px;
+height:100px;
+
+}
+.photos::before{
+content:'See photos...';
+background=red;
+}
+#selectBook{
+position: absolute;
+background:lime;
+border-radius:50px;
+right:3px;
+top:0px;
+font-size:50px;
+text-decoration:none;
+color: blue;
+-webkit-text-stroke:1px red;
+box-shadow:0px 0px 20px aqua;
+
+}
+</style>
+
+
+
+<body >
+<div id="Head">
+<a href="books.html"id="selectBook">&#10162</a>
+
+<div id="mySidenav" class="sidenav">
+  <a class="closebtn"
+  onclick="closeNav()">&times;</a>
+
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Career</a>
+  <a href="#">Contact</a>
+
+</div>
+<span class="Menu" style="font-size:30px;cursor:
+pointer"onclick="openNav()">☰
+</span>
+<h3 id="results">No results</h3>
+
+
+
+<h2 class="subject">Animation 11</h2>
+<form name="calculator">
+<input onclick="Delete()" type="text" id="myInput"
+onkeyup="myFunction()" placeholder=
+"Search..."title="Type in a name" name="answer"/>
+<btn onclick="Hide()">
+<button  onkeyup="Hide()"id="delete" class="ranrev01"type="button"
+ onclick="calculator.answer 
+
+       .value =''"   >&times</button>
+</btn>
+<div id="search1"class="search2" onclick="search3()">
+<a><img src="search.png" class="image_search" ></img></a>
+</div>
+</div>
+</form>
+
+<ul id="myUL" onclick="Search_Image_Hide()">
+
+<li><a> <h2 class="title">3D ANIMATION  </h2> A digitally modeled and manipulated by an animator. The animator usually starts by creating a 3D polygon mesh to manipulate. A mesh typically includes many vertices that are connected by edges and faces, which give the visual appearance of form to a 3D object or 3D environment.</a></li>
+
+
+
+<li><hr><a ><h2 class="title"> TRADIGITAL ANIMATION   </h2> It refers to the melding or combination of the traditional and computer based (digital) methods used to create something8 </a></li>
+
+
+<li><hr><a ><h2 class="title">TRADIGITAL ART    </h2>  It is an art that combines both traditional and computer-based techniques to create an image.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> STOP MOTION ANIMATION   </h2> An animated filmmaking technique in which objects are physically manipulated in small increments between individually photographed frames so that they will appear to exhibit independent motion or change when the series of frames is played back.      </a></li>
+
+
+<li><hr><a ><h2 class="title">GRAPHICS ANIMATION    </h2>  o A variation of stop motion consisting of the animation of photographs and other non-drawn flat visual graphic material, such as newspaper and magazine clippings.      </a></li>
+
+
+<li><hr><a ><h2 class="title"> TRADITIONAL ANIMATION   </h2>  is an animation technique in which each frame is drawn by hand. Sample scene:     </a></li>
+
+
+<li><hr><a ><h2 class="title"> STORYBOARD    </h2> It is the first visuai version of the project. A strong storyboard is half the project done. It is the Foundation on which the movie, TV series or Computer game is built.      </a></li>
+
+
+<li><hr><a ><h2 class="title"> KEY DRAWING (key pose)   </h2>  is a single Still image in an animated sequence that occurs at an important point in that sequence; key frames are defined throughout an animated sequence, in order to define pivotal points of motion before the frames in between are drawn. </a></li>
+
+
+<li><hr><a><h2 class="title"> TIMING CHART   </h2>  Is used to determine the position of the inbetweens for the extreme drawings. Basically, it indicates the small incremental movements that get you from one extreme to another. The greater the distance, or amount of change, from one frame to another will indicate how fast or slow the object seems to move.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> BREAKDOWN DRAWING   </h2>   Is a Supplemental key drawing guide to ensure proper action flow and spacing between two animation keys.    </a></li>
+
+
+<li><hr><a ><h2 class="title">  IN-BETWEEN DRAWING  </h2>   The drawing produced between two key drawings. The middle drawing between two timing grid lines    </a></li>
+
+
+<li><hr><a ><h2 class="title">EXTREME (also called "key")     </h2>  Is a key moment in an animated sequence, where the motion is at its extreme.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> LINE DRAWING   </h2>  A drawing done using only narrow lines, a variation of which, in width and density, produce such effects as tone and shading. paFimage     </a></li>
+
+
+<li><hr><a > <h2 class="title">CONSTRUCTION DRAWING    </h2> Roughing out the shape and volume of the character.      </a></li>
+
+
+<li><hr><a ><h2 class="title"> LIFE/FIGURE DRAWING   </h2> Drawing of the human form in any of its various shapes and postures using any of the drawing media. Here, a mannequin doll used as a reference      </a></li>
+
+
+<li><hr><a ><h2 class="title">STRAIGHT AHEAD DRAWING    </h2> A term used in animation that refers to a method that uses only the first key pose of a character, and then continues drawing the character to create the desired motion. Nov 2, 2020 06:57:10      </a></li>
+
+
+<li><hr><a ><h2 class="title">  POSE TO POSE DRAWING  </h2> Characterized by the process of first drawing your key poses at significant points in the action, refining the key drawings, and then doing the in- betweens. This process gives the creator more Control and ensures the accuracy of the final result.      </a></li>
+
+
+<li><hr><a ><h2 class="title">  EXPOSURE SHEET/DOPE SHEET/X SHEET  </h2> This is the technical part of animation which requires all the action and other details plotted down, also, a numerical and alphabetical order of drawing labels written down following the sequence of action.      </a></li>
+
+
+<li><hr><a ><h2 class="title">DIGITAL ROUGH BREAKDOWNS    </h2>  A special digital drawing that is provided only by animators or directors if needed in the scene. ov o ae     </a></li>
+
+
+<li><hr><a> <h2 class="title"> ROUGH KEY POSES    </h2> Rough initial drawings of Key drawings which are drawn in lousy sketches, contain the main construction of the character in the required poses of the scene to be followed by the clean-up and in- between artist.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> ROUGH EXPRESSIONS   </h2>  A rough drawing that shows different expressions of a particular character in its basic construction.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> TIMING GRID   </h2> A bar lines indicating action speed, this enables the animator to control the speed, spacing and weight hllsolhav of a particular action. The more drawings, the smoother the action.  </a></li>
+
+
+<li><hr><a ><h2 class="title">FRAME BY FRAME ANIMATION</h2>animation changes the contents of the Stage in every frame. it is best suited to complex animation in which an image changes in every frame instead of simply moving across the Stage  </a></li>
+
+
+<li><hr><a> <h2 class="title"> MODEL SHEET   </h2>  refers to the model character in different rotating angles. Also, refers to the set of expressions, action poses, mouth charts of a certain character. Can also be a model of a prop, object and backgrounds / sceneries.     </a></li>
+
+
+<li><hr><a> <h2 class="title"> ON-MODEL   </h2> a character drawn and constructed to the likeness and conforms to the model sheets      </a></li>
+
+
+<li><hr><a ><h2 class="title"> OFF-MODEL   </h2>  A drawing that does not conform the look of the character to the model sheet.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> PHONETIC MOUTH CHART   </h2>  A mouth chart isa simple page containing mouth shapes coded with a letter. This way you can easily mark down the mouth code (letter) beside each frame of your breakdown.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> LIPSYNC   </h2> (short for "lip synchronization") in animation, the art of making an animated character appear to speak in a prerecorded track of dialogue.      </a></li>
+
+
+<li><hr><a ><h2 class="title"> COLUMN OR LAYER-COLUMN   </h2>  A vertical chart viewed on the exposure sheet. Layer is a horizontal chart viewed on the timeline.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> ACTION POSE   </h2>  A pose that appears to be moving, showsS movement or action.     </a></li>
+
+
+
+<li><hr><a ><h2 class="title">ONION SKIN    </h2>  A feature of the animation software that can show the previous and next drawings res pectively while working on the current in-between frame.     </a></li>
+
+
+<li><hr><a ><h2 class="title"> CLEAN UP   </h2>  refers to the process of refining the rough artwork of 2D animation. The purpose of clean-up is to recreate the animation with smooth, consistent line art and line weights before it is transferred to cels for painting. The first drawings are called "roughs" or "rough animation" because they are often done in a very loose fashion. If the animation is successfully pencil tested and approved by the director, clean versions of the drawings have to be done.     </a></li>
+
+<li><hr><a ><h2 class="title">  KEY DRAWINGS  </h2>  Key drawings that are already on-modeled and cleaned-up and drawn with similarity to the model sheet. Clean-up is a part of the workflow in the production of hand-drawn animation, in which "clean" versions of the "rough" animation drawings are produced.     </a></li>
+
+<li><hr><a> <h2 class="title"> FLIPPING   </h2> Holding a pile of drawings and flipping them repeatedly to check the animation prior to shooting a line test. Same principle as a flip book. Even when drawing key positions, it is important to flip between one or more other key positions to keep form, continuity, and movement consistent.      </a></li>
+
+<li><hr><a ><h2 class="title"> ANIMATIC (LEICA REEL)   </h2> In its simplest form, an animatic is essentially a rough draft of a film or sequence, consisting of simple storyboarded panels (sketchily drawn images of each shot in a sequence) that are timed out with a temporary soundtrack (voices, music and some sound effects)      </a></li>
+
+<li><hr><a ><h2 class="title">   3D ANIMATION  </h2> A digitally modeled and manipulated by an animator. The animator usually starts by creating a 3D polygon mesh to manipulate. A mesh typically includes many vertices that aree connected by edges and faces, which give the visual appearance of form to a 30 object or 30 environment     </a></li>
+
+<li><hr><a ><h2 class="title"> Tradigital Art   </h2>It is an art that combines botg traditional and computer-based technique to create an image.      </a></li>
+
+<li><hr><a ><h2 class="title">Traditional Animation    </h2>Is a animation technique in which each frame in drawn by hand.      </a></li>
+
+<li><hr><a> <h2 class="title"> MODEL SHEET   </h2> The turn around is ane af the most important  parts of the character design. It shows the character from every angle and finalizes all details to and maintain a Consistent look for the character as he moves.  </a></li>
+
+<li><hr><a ><h2 class="title"> Construction Sheet   </h2> If you have more than one animator working on a character, it is also important to do constructions Constructions break a character down into simple shapes to help speed upP rough animation and, again, to help maintain the consistent look of the character   </a></li>
+
+<li><hr><a> <h2 class="title"> Character design   </h2>   Normally starts with a series-or huge pile-of sketches until a specific look starts to develop that works for the character. It may take dozens, or hundreds, of drawings to work out the subtleties of a character. asew bdenete    </a></li>
+
+<li><hr><a ><h2 class="title">  Character Design  </h2>   Before storyboarding, we need to know what the character looks like. We will, however, often work on both storyboarding and design at the same time as we determine what we want the character to look like. We then finalize the storyboards with the approved character design.    </a></li>
+
+<li><hr><a ><h2 class="title"> Storyboard Artist   </h2>   Works directly from a script and create first visual images of the project. She is gven the script and has to turn the words into pictures. She turns the script into a series of comic book like images that narrates the tale. She will provide the blue print from which the entire project is built.    </a></li>
+
+<li><hr><a ><h2 class="title"> storyboard   </h2>  The storyboard is an illustrated view, like a comic book, of how the producer or director envisions the final edited version of a production will look A storyboard can be anything from a sketch on the back of an envelope to a highly crafted, fully- colored presentation document that can be used to sell the entire film. project. She is    </a></li>
+
+<li><hr><a> <h2 class="title"> Expressions Sheet   </h2>  Once a drawing of a character is approved, you will start working out expressions. Expressions are drawings of a character expressing different emotional behaviors, such as crying, laughing, yelling, being sneaky, and many others.     </a></li>
+
+<li><hr><a ><h2 class="title">  Color design  </h2> The final step in character design is color. Color design needs to work on the character as well as with the other characters and the backgrounds. When the script calls for dark shots, there will also be a set of night colors for each character. Timmy's final design and colors may be seen in Figure 10.1-4f.     </a></li>
+
+<li><hr><a ><h2 class="title"> Layout artist   </h2>  Is to design and draw the "stage" on which the. character and special effects animation takes place, in addition to staging every scene and camera set-up.     </a></li>
+
+<li><hr><a> <h2 class="title"> Layout   </h2>The layout are drawn from the storyboard panels which the layout artist develops into detailed  backdrops, ready for the background department to paint. For the most animation artists, the task of producing top-drawer artwork can be challenging enough, even with a head start. The Layout artist is given the storyboard, the background artist is gven a layout and animator is given the storyboard plus the layout, and so on and so forth.      </a></li>
+
+<li><hr><a ><h2 class="title"> Extended Tripod Grip   </h2>  The extended tripod grip is a comfortable way to hold a pencil for light sketching; your fingers are high up the pencil to keep you from marking too darkly when blocking in your drawing.        <br><br> <img  class="photos" src="image01.jpg" style="width:100%">    </a></li>
+
+<li><hr><a> <h2 class="title">Overhand Grip    </h2>  The overhand grip allows you to shade with the side of the pencil or a small charcoal stick and is a useful grip for vertical drawing surfaces such as an easel.  <br>  <br> <img  class="photos" src="image02.jpg" style="width:100%"></a></li>   </a></li>
+
+<li><hr><a ><h2 class="title">Underhand Grip     </h2>   Another relaxed way of holding a pencil is the underhand grip. Move the pencil higher so it sits in the V of the thumb and palm, with the index and middle finger lightly controlling the tip, similar to eating with chopsticks. The underhand grip is useful for charcoal pencils because of all the grips, this one applies the least pressure.<br>  <br> <img  class="photos" src="image03.jpg " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">  Basic Tripod Grip  </h2>   After the initial block-in and Iight sketching phase when you're ready to shade, transition to the basic tripod grip, which you use when you write a letter. This grip employs the most tension of the four, making it ideal for detail work. A paper towel under your hand will protect your drawing from smudges and skin oils.         <br>  <br> <img  class="photos" src="image04.jpg " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>How to hold tools           <br>  <br> <img  class="photos" src="image05.jpg " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title"> Hatching   </h2>    Hatches are line made to shade, render texture and form, generally trying to achieve tonal range with line. fill in a row of boxes, or circles if you like, with hatch lines as you see here,        <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">  Crosshatching Development  </h2>     Hatching and crosshatching provide nearly limitiess possibilities depending on:<br> <b>•</b>the utensill you're using, such as graphite pencil,<br> <b>•</b>pen or charcoal<br> <b>•</b>the pressure you exert<br> <b>•</b>the variety of hatch marks<br> <b>•</b>the curvature of the lines<br> Here you can see a basic progression of crosshatching using a 2B pencil. You can use a very hard, light pencil lke a 2H or HB to hatch distant areas in a landscape drawing, or a variety of hatch marks with a 6B or 88 to adhieve a heavy shadow.          <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">HATCHING AND CROSSHATCHING    </h2> You can always use your fingers or a tortillon to blend tones, but once in a while, try hatching or crosshatching.<br> <b>Hatching </b>is a technique used to apply tone and shadows in rows of parallel lines usually drawn closely.<br> <b>Crosshatching</b> is the crisscrossing of several layers of hatching in order to darken your tones.<br> You might find that setting your paper at an angle will be a comfortable position for you. Practice the hatching chart shown here with different pencil types and pencil pressures to get gradual and Continuous shades.           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a> <h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+<li><hr><a ><h2 class="title">    </h2>           <br>  <br> <img  class="photos" src=" " style="width:100%"></a></li>
+
+
+
+
+
+
+</ul>
+
+<script>
+function openNav() {
+ document.getElementById("mySidenav")
+ .style.width="210px";
+ document.getElementById("delete")
+ .style.opacity="0";
+document.getElementById("search1")
+ .style.opacity="0%";
+
+
+
+}
+
+function closeNav() {
+ document.getElementById("mySidenav")
+ .style.width = "0";
+}
+    
+function Delete() {
+ document.getElementById("delete")
+ .style.opacity="250%";
+
+}
+function Hide() {
+ document.getElementById("delete")
+ .style.opacity="0";
+document.getElementById("search1")
+ .style.opacity = "0%";
+}
+function search3() {
+ document.getElementById("search1")
+ .style.opacity = "0%";
+document.getElementById("delete")
+ .style.opacity="0%";
+}
+function Delete() {
+ document.getElementById("search1")
+ .style.opacity= "100%";
+  document.getElementById("delete")
+ .style.opacity="100%";
+}
+
+function Search_Image_Hide(){
+       document.getElementById("search1").style.opacity="0%";    
+document.getElementById("delete")
+ .style.opacity="0%";
+}
+
+
+ /* Declare variables */  
+
+function myFunction() {
+
+
+var input, filter, ul, li,h2, a,i;
+input=document.getElementById("myInput");
+filter = input.value.toUpperCase();
+ul = document.getElementById("myUL");
+li = ul.getElementsByTagName("li");
+
+
+ /* Loop through all list items, and hide
+ those who don't match the search query */ 
+
+for (i = 0; i < li.length; i++) {
+a = li[i].getElementsByTagName("a")[0];
+
+if (a.innerHTML.toUpperCase()
+.indexOf(filter) > -1) {
+  li[i].style.display = "";
+document.getElementById("results").style.opacity="-00%";
+    }
+if (a.innerHTML.toUpperCase()
+.indexOf(filter) > -1) {
+  p2[i].style.display = "";
+document.getElementById("results").style.opacity="-00%";
+    
+    } else {
+      li[i].style.display = "none";
+            document.getElementById("results").style.opacity="500%";
+      }
+
+
+      
+}
+}
+</script>
+
+</body>
+</html>
+
